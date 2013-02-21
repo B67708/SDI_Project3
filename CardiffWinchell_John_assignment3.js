@@ -1,60 +1,70 @@
 // Author John Cardiff-Winchell
 // Date 2/20/2013
 // Class Scalable Data Infastructures
-//Project 3 -  Picking a place to go out and eat, extended.
+//Project 3 -  Picking a place to go out and eat, revised and extended.
 
 // Variables
 
 var cash = 30;
 var waitTime = 30;
-	
 var fastFoodArray = ["Mcdonald's", "Taco Bell", "Burger King", "Wendy's", "Rally's"];
-
-var sitDownRestaurauntArray = ["Pizza Hut", "Applebee's", "Tony's", "Don Pablo's", "Bennigan's"];
-var arrayItem = "Bennigan's";
-
-var question1 = " Do you want to go out for dinner tonight?"
+var sitDownRest = ["Pizza Hut", "Applebee's", "Tony's", "Don Pablo's", "Bennigan's"];
+var question1 = "Do you want to go out for dinner tonight?";
+var money = "yes";
+var answer = true
 
 
 	
 	
-// function asks if I have money. If so, we can go out. If not, I cook.
+// function asks if I have money.
 
-var doIHaveMoney = function (money)
+var goOut = function ()
 {
-	if (cash === 30)	
-	{
-		console.log("We can go out to eat");
-	}
-	else
-	{
-		console.log("Thats alright, I'll cook something for us.");
-	}		
+	var haveMoney = "";
+	if (money === "yes"){haveMoney = true;}	
+	
+	else	
+	{haveMoney = false;}
+	 return haveMoney;		
+};
+console.log("Do I have money?" + " " + goOut() + ".");
+ 
+	if(goOut() === true)
+{
+	console.log("I have" + " " + cash + " " + "dollars");
 }
- console.log("If I have money" + " we can go out to eat.");
- console.log("I have" + " " + cash + " " + "dollars");
- doIHaveMoney(true);
-
-
-//This function determines if she wants to go out to dinner.
-	
-var doYouWantTo = function (answer)
+	else
 {
- 	var result;
+	console.log("I am broke");
+}
+
+//This function asks if she wants to go out to dinner.
+	var wantTo = function()
+{
+	var go = question1 + " " + "I have " + cash + " dollars."
+	return go
+}	
+ console.log(wantTo());
+
+ 
+//This function determines her answer.
+	
+var answer1 = function()
+{
 	if (answer === true)
 	{
-		result = true;
-		console.log("You do? Let's do it then!");
+		var comment1 = "You do? Let's do it then!";
 	}
 	else
 	{
-		result = false;
-		console.log("Alright, I will start cooking");
+		if (answer === false)
+	{
+		var comment1 = "Alright, I will start cooking"};
 	}
-	return result;
+		return comment1;
 }
- console.log("Hey Ashley?" + question1);
- doYouWantTo(true);
+	console.log(answer1());
+ 
  
  // function decides if we eat at a fast food or sit down restaurant.
  // I have 30 dollars. if a sit down will cost more than that, we will need to eat fast food.
@@ -118,17 +128,15 @@ console.log("Are we going to stay if there is less than 30 minute wait?");
 	}
 	
  // This is the array function. it decides which place we eat at.
-var placesWeCanEat = function (sitDownRestaurauntArray, arrayItemNumber)
+var placesWeCanEat = function (sitDownRest)
 	
 {	console.log("Places we can go");
-	for (i = 0; i < 5; i++)
+	for (i = 0; i < sitDownRest.length; i++)
 	{	
-		console.log(sitDownRestaurauntArray[i]);
+		console.log(sitDownRest[i]);
 	}	
 	
-	return sitDownRestaurauntArray,[arrayItemNumber];
+	return sitDownRest;
 }	
 
-console.log(placesWeCanEat(sitDownRestaurauntArray, arrayItem) + ( " is where we are having dinner"));
-	
-	
+console.log(sitDownRest[3] + ( " is where we are having dinner"));
